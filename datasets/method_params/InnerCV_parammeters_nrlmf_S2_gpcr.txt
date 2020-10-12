@@ -1,0 +1,21 @@
+AUPR	AUC	Time	Params
+0.384325	0.852084	0.673514	{'num_factors': 50, 'lambda_d': 0.125, 'alpha': 1.0, 'beta': 0.25}
+0.389411	0.911068	0.597404	{'num_factors': 50, 'lambda_d': 0.0625, 'alpha': 1.0, 'beta': 0.25}
+0.309946	0.754656	0.599988	{'num_factors': 50, 'lambda_d': 0.125, 'alpha': 1.0, 'beta': 0.125}
+0.446910	0.792493	0.596364	{'num_factors': 50, 'lambda_d': 0.0625, 'alpha': 1.0, 'beta': 0.5}
+0.287516	0.891669	0.753472	{'num_factors': 100, 'lambda_d': 0.25, 'alpha': 1.0, 'beta': 0.125}
+0.410461	0.874220	0.703291	{'num_factors': 100, 'lambda_d': 0.0625, 'alpha': 0.25, 'beta': 0.03125}
+0.206324	0.831189	0.597917	{'num_factors': 50, 'lambda_d': 0.03125, 'alpha': 1.0, 'beta': 0.25}
+0.324192	0.894836	0.614443	{'num_factors': 50, 'lambda_d': 0.125, 'alpha': 1.0, 'beta': 0.125}
+0.444741	0.918529	0.592135	{'num_factors': 50, 'lambda_d': 0.25, 'alpha': 0.5, 'beta': 0.03125}
+0.366030	0.807145	0.712598	{'num_factors': 100, 'lambda_d': 0.0625, 'alpha': 1.0, 'beta': 0.03125}
+0.228508	0.769666	0.584392	{'num_factors': 50, 'lambda_d': 0.25, 'alpha': 1.0, 'beta': 0.25}
+0.329993	0.893590	0.720778	{'num_factors': 100, 'lambda_d': 0.03125, 'alpha': 1.0, 'beta': 1.0}
+0.325124	0.877503	0.722883	{'num_factors': 100, 'lambda_d': 0.0625, 'alpha': 1.0, 'beta': 1.0}
+0.463034	0.848304	0.691882	{'num_factors': 100, 'lambda_d': 0.25, 'alpha': 1.0, 'beta': 0.0625}
+0.278353	0.867074	0.597720	{'num_factors': 50, 'lambda_d': 0.125, 'alpha': 1.0, 'beta': 0.125}
+0.336018	0.912907	0.591617	{'num_factors': 50, 'lambda_d': 0.03125, 'alpha': 1.0, 'beta': 0.25}
+0.239776	0.834866	0.591017	{'num_factors': 50, 'lambda_d': 0.03125, 'alpha': 0.25, 'beta': 0.0625}
+0.453044	0.840059	0.585877	{'num_factors': 50, 'lambda_d': 0.0625, 'alpha': 1.0, 'beta': 0.125}
+0.288371	0.874245	0.816185	{'num_factors': 100, 'lambda_d': 0.03125, 'alpha': 1.0, 'beta': 0.03125}
+0.389212	0.790368	0.676893	{'num_factors': 50, 'lambda_d': 0.25, 'alpha': 1.0, 'beta': 0.25}

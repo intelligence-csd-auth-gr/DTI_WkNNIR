@@ -1,0 +1,21 @@
+AUPR	AUC	Time	Params
+0.246203	0.656998	0.137631	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.125, 'avg': True}
+0.241559	0.770644	0.081781	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.209015	0.796105	0.085771	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.210657	0.712011	0.089760	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.392229	0.919009	0.091754	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.131850	0.813421	0.078789	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.450316	0.860620	0.100706	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.365092	0.838131	0.088761	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.206831	0.690717	0.081756	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.247848	0.850043	0.074774	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.311397	0.883059	0.077800	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.125, 'avg': True}
+0.202399	0.640406	0.083777	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.125, 'avg': True}
+0.291167	0.842778	0.087768	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.280563	0.759929	0.076795	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.210950	0.778891	0.092751	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.220196	0.668423	0.084778	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.5, 'avg': True}
+0.294081	0.793821	0.083779	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.25, 'avg': True}
+0.177753	0.904917	0.089765	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.5, 'avg': True}
+0.272520	0.770406	0.086768	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.5, 'avg': True}
+0.242257	0.689749	0.085745	{'alpha': 1.0, 'gamma': 1.0, 'sigma': 0.125, 'avg': True}
