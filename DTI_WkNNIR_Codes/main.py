@@ -13,6 +13,7 @@ from nn.mlknnsc import MLKNNSC
 from mf.nrlmf import NRLMF
 from nn.wknkn import WKNKN
 from nn.wknknri import WKNKNRI
+from nn.wknknri4 import WKNKNRI4_
 from tree.bictree import BiCTree
 from tree.ebictree import EBiCTree
 from tree.ebictreer import EBiCTreeR
@@ -23,7 +24,8 @@ from en.els import ELS
 
 """
 'wknkn' or WKNKN corresponds to the WKNN method in the paper
-'wknknri' or WKNKNRI corresponds to the WkNNIR method in the paper 
+'wknknri' or WKNKNRI corresponds to the WkNNIR method in the early version paper (https://arxiv.org/pdf/2012.12325v1.pdf)
+'wknknri4_' or WKNKNRI corresponds to the WkNNIR method in the current version paper (https://arxiv.org/pdf/2012.12325v2.pdf)
 'ers' or ERS corresponds to the ERS ensemble method in the paper
 'egs' or EGS corresponds to the EGS ensemble method in the paper
 'els' or ELS corresponds to the ELS ensemble method in the paper
@@ -54,6 +56,8 @@ def initialize_model(method, cvs=2):
         model = WKNKN(k=7, T=0.8)
     elif method == 'wknknri':
         model = WKNKNRI(k=7, kr=7, T=0.8)
+    elif method == 'wknknri4_':
+        model = WKNKNRI4_(k=7, kr=7, T=0.8)
     elif method == 'ers':
         model = ERS(base_model = initialize_model('wknknri'), n_models=30, seed=0, p=0.95)
     elif method == 'egs':
@@ -85,7 +89,7 @@ def initialize_parameter_candidates(method, cvs=2):
     elif method == 'wknkn':
         values = np.arange(0.1,1.1,0.1)
         params_cd = {'k':[1,2,3,5,7,9],'T':values} #'k':[1,2,3,5,7,9] 'k':[10,15,20]
-    elif method == 'wknknri':
+    elif method == 'wknknri' or  method == 'wknknri4_':
         values = np.arange(0.1,1.1,0.1)
         params_cd = {'k':[1,2,3,5,7,9] ,'kr':[1],'T':values} #'k':[1,2,3,5,7,9]  [5,10,15,20,25,30]
     else:
@@ -107,7 +111,7 @@ if __name__ == "__main__":
         os.makedirs(output_dir) 
     out_summary_file = os.path.join(output_dir, "summary_result"+ time.strftime("%Y_%m_%d_%H_%M_%S", time.gmtime()) +".txt")
 
-    parameter_setting = 0
+    parameter_setting = 2
     # 0: run cross validation on a model with specific parameters setting 
     # 2: run cross validation on a model with choosing parammeters by inner CV on training set for each fold
     # 5 run cross validation on ensemble models with various base learners, and the parameters of base learners are retirved from files
@@ -123,7 +127,7 @@ if __name__ == "__main__":
                 num = 10
                 if cvs == 4:
                     num = 3
-                for dataset in ['nr']:  # 'nr','ic','gpcr','e'
+                for dataset in ['nr']:  # 'nr','ic','gpcr','e','db'
                     out_file_name= os.path.join(output_dir, "Specific_parameters_"+method+"_"+"S"+str(cvs)+"_"+dataset+".txt") 
                     intMat, drugMat, targetMat = load_data_from_file(dataset, data_dir)
                     tic = time.time()
@@ -139,14 +143,14 @@ if __name__ == "__main__":
         print(cmd)
         with open(out_summary_file,"w") as f:
             f.write(cmd+"\n")
-        for method in ['aladin', 'blmnii', 'mlknnsc', 'blm_mlknn', 'nrlmf', 'wknkn', 'wknknri']:
+        for method in ['wknknri4_']: #'aladin', 'blmnii', 'mlknnsc', 'blm_mlknn', 'nrlmf',  'wknkn', 
             model = initialize_model(method)  # parameters could be changed in "initialize_model" function
             for cvs in [2,3,4]: # 2,3,4
                 params_cd = initialize_parameter_candidates(method,cvs)
                 num = 10
                 if cvs == 4:
                     num = 3
-                for dataset in ['nr']:  # 'nr','ic','gpcr','e'
+                for dataset in ['nr']:  # 'nr','ic','gpcr','e','db'
                     out_file_name= os.path.join(output_dir, "InnerCV_parammeters_"+method+"_"+"S"+str(cvs)+"_"+dataset+".txt") 
                     intMat, drugMat, targetMat = load_data_from_file(dataset, data_dir)
                     tic = time.time()
@@ -162,7 +166,7 @@ if __name__ == "__main__":
         with open(out_summary_file,"w") as f:
             f.write(cmd+"\n")
         en_methods = ['ers']  # 'ers', 'egs', 'els'
-        base_methods = ['aladin', 'blmnii', 'mlknnsc', 'nrlmf', 'wknkn', 'wknknri' ]  #
+        base_methods = ['aladin', 'blmnii', 'mlknnsc', 'nrlmf', 'wknkn', 'wknknri4_' ]  #
         model_list = []
         for bm in base_methods:
             b_model = initialize_model(bm)
@@ -179,7 +183,7 @@ if __name__ == "__main__":
                 num = 10
                 if cvs == 4:
                     num = 3
-                for dataset in ['nr']:  # 'nr','ic','gpcr','e'
+                for dataset in ['nr']:  # 'nr','ic','gpcr','e','db'
                     param_file = os.path.join(data_dir,'method_params','InnerCV_parammeters_'+bm+'_S'+str(cvs)+'_'+dataset+'.txt')
                     params = get_params(param_file)
                     
